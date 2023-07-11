@@ -8,19 +8,31 @@ Niamh Kirsty Ferns
 - KaosBunny
 
 ## Assignment 1
-
 ## Title of the Game
-WORKING TITLE
+Last Ship Standing
 
 Link to video (onedrive/vimeo/youtube/googledrive other video service) showing the prototype/game ( approx. 4-9 mins )
 
 # Game Description
 ## Summary
-A general description of the game and how it is played. 
+Last ship standing is a wave-based survival space game. You are the commander of a lonly ship with only one goal: survive.
 
 ## Controls
+### Movement
+Up:    W
+Left:  A
+Down:  S
+Right: D
+Boost: Shift
+
+### Attacks
+Primary Fire: Left Click
+Bomb:         Right Click
 
 ## Goal
+**Survive!**
+
+Your only goal in this game is to survive as long as possible with the waves getting progressively harder.
 
 ## Game Mechanic
 *Main mechanic the game is based around.*
@@ -32,5 +44,4 @@ A general description of the game and how it is played.
 *Most interesting part of the game*
 
 # Reflection
-
 Reflection on learning.  This is very important.  You need to think about what you are learning and how it is making you better at using the engine.
