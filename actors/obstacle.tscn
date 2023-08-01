@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1erof7tjq72d"]
+
+[ext_resource type="Texture2D" uid="uid://drvoi5675p3i5" path="res://assets/flappy-bird-assets/sprites/pipe-green.png" id="1_3q42g"]
+[ext_resource type="Script" path="res://scripts/obstactle.gd" id="1_sdkx7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tge4h"]
+size = Vector2(52, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwlrr"]
+size = Vector2(52, 320)
+
+[node name="Obstacle" type="Area2D"]
+collision_layer = 3
+script = ExtResource("1_sdkx7")
+
+[node name="TopTexture" type="Sprite2D" parent="."]
+position = Vector2(0, 225)
+texture = ExtResource("1_3q42g")
+
+[node name="BottomTexture" type="Sprite2D" parent="."]
+position = Vector2(0, -225)
+rotation = 3.14159
+texture = ExtResource("1_3q42g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -225)
+shape = SubResource("RectangleShape2D_tge4h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 225)
+shape = SubResource("RectangleShape2D_iwlrr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
