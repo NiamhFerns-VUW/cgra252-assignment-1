@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://diktr7k27w4q0"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gg4o5"]
+[ext_resource type="PackedScene" uid="uid://inddyfk4vot4" path="res://actors/background.tscn" id="2_vpj0r"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_gg4o5")
+
+[node name="Background1" parent="." instance=ExtResource("2_vpj0r")]
+position = Vector2(144, 244)
+
+[node name="Background2" parent="." instance=ExtResource("2_vpj0r")]
+position = Vector2(431, 244)
+
+[node name="Background3" parent="." instance=ExtResource("2_vpj0r")]
+position = Vector2(719, 244)
+
+[node name="Background4" parent="." instance=ExtResource("2_vpj0r")]
+position = Vector2(1007, 244)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="Start" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Opts" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[connection signal="pressed" from="GridContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="GridContainer/Opts" to="." method="_on_opts_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
