@@ -1,25 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5ttxo6ta4r3m"]
+[gd_scene load_steps=6 format=3 uid="uid://c5ttxo6ta4r3m"]
 
 [ext_resource type="Script" path="res://scripts/LVL_main.gd" id="1_kj3vm"]
 [ext_resource type="PackedScene" uid="uid://b2criqflyiaqv" path="res://actors/player.tscn" id="2_kleb6"]
 [ext_resource type="PackedScene" uid="uid://inddyfk4vot4" path="res://actors/background.tscn" id="2_y6h35"]
+[ext_resource type="PackedScene" uid="uid://dd20siun6x2d2" path="res://UI/score_ui.tscn" id="4_yurmd"]
+[ext_resource type="PackedScene" uid="uid://bwhs20ddqm55d" path="res://UI/death_ui.tscn" id="5_rh56u"]
 
 [node name="Level" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_kj3vm")
 
-[node name="BackgroundTiles" type="Node2D" parent="."]
+[node name="Gameplay" type="Node2D" parent="."]
+process_mode = 1
 
-[node name="Background1" parent="BackgroundTiles" instance=ExtResource("2_y6h35")]
+[node name="BackgroundTiles" type="Node2D" parent="Gameplay"]
+
+[node name="Background1" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_y6h35")]
 position = Vector2(1005, 244)
 
-[node name="Background2" parent="BackgroundTiles" instance=ExtResource("2_y6h35")]
+[node name="Background2" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_y6h35")]
 position = Vector2(144, 244)
 
-[node name="Background3" parent="BackgroundTiles" instance=ExtResource("2_y6h35")]
+[node name="Background3" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_y6h35")]
 position = Vector2(431, 244)
 
-[node name="Background4" parent="BackgroundTiles" instance=ExtResource("2_y6h35")]
+[node name="Background4" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_y6h35")]
 position = Vector2(719, 244)
 
-[node name="Player" parent="." instance=ExtResource("2_kleb6")]
-position = Vector2(201, 268)
+[node name="Player" parent="Gameplay" instance=ExtResource("2_kleb6")]
+position = Vector2(200, 220)
+
+[node name="ScoreUI" parent="Gameplay" instance=ExtResource("4_yurmd")]
+
+[node name="DeathUI" parent="." instance=ExtResource("5_rh56u")]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwhs20ddqm55d"]
+
+[ext_resource type="Script" path="res://scripts/death_ui.gd" id="1_2ytci"]
+
+[node name="DeathUI" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_2ytci")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -39.0
+offset_right = 71.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "You Died...
+Space to Try Again
+Esc to Quit"
+horizontal_alignment = 1

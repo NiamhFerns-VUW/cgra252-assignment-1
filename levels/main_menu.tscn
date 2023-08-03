@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://diktr7k27w4q0"]
+[gd_scene load_steps=4 format=3 uid="uid://diktr7k27w4q0"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gg4o5"]
 [ext_resource type="PackedScene" uid="uid://inddyfk4vot4" path="res://actors/background.tscn" id="2_vpj0r"]
+[ext_resource type="FontFile" uid="uid://dd7vouvsypbqh" path="res://fonts/04b_30/04B_30__.TTF" id="3_ttkh5"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_gg4o5")
@@ -24,24 +25,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -72.0
+offset_top = -41.0
+offset_right = 73.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="Start" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Start Game"
+theme_override_fonts/font = ExtResource("3_ttkh5")
+text = " Start "
 
 [node name="Opts" type="Button" parent="GridContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ttkh5")
 text = "Options"
 
 [node name="Quit" type="Button" parent="GridContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ttkh5")
 text = "Exit
 "
 
