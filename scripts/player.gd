@@ -10,6 +10,7 @@ func reset():
 	position = Vector2(200, 220)
 	vel = Vector2(0.0, 0.0)
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	starting_position = position
@@ -26,10 +27,9 @@ func _process(delta):
 		position.x += x_vel * delta
 		# x_vel = max(0.0, x_vel - 10)
 		return
-	
+
 	if Input.is_action_just_pressed("fire"):
 		vel = Vector2(0.0, -550.0)
-	
 
 	if position.y > get_viewport().size.y:
 		$"../..".game_over = true

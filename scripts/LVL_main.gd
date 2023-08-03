@@ -50,6 +50,12 @@ func _ready():
 
 func _process(_delta):
 	# Score on passing a pipe.
-	if !game_over and $"Gameplay/Player".position.x > pipes[current_pipe].position.x + (pipes[0].get_width() / 2):
+	if (
+		!game_over
+		and (
+			$"Gameplay/Player".position.x
+			> pipes[current_pipe].position.x + (pipes[0].get_width() / 2)
+		)
+	):
 		$"Gameplay/ScoreUI".score_tick()
 		current_pipe = (current_pipe + 1) % pipes.size()

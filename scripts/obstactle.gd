@@ -12,9 +12,6 @@ func get_height():
 	return $TopTexture.texture.get_height()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-
-
 func _process(delta):
 	position += vel * delta
 	if position.x < -20:
