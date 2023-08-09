@@ -1,6 +1,6 @@
 extends Node2D
 
-var current_pipe  # Index of pipe immedietely in front of player.
+var current_pipe  # Index of pipe immediate in front of player.
 var pipes = []  # All pipes.
 var rng = RandomNumberGenerator.new()
 
@@ -27,7 +27,9 @@ func game_reset():
 
 # Reset pipes to starting position.
 func reposition_pipes():
+	pipes[current_pipe].set_inactive()
 	current_pipe = 0
+	pipes[current_pipe].set_active()
 	for i in range(0, pipes.size()):
 		pipes[i].position = Vector2(680 + (i * 200), rng.randi_range(140, 350))
 
@@ -36,16 +38,17 @@ func reposition_pipes():
 func spawn_pipes(n: int):
 	var obstacle = load("res://actors/obstacle.tscn")
 	for i in range(0, n):
-		var obstactle_instance = obstacle.instantiate()
-		obstactle_instance.set_name("pipe" + str(i))
-		obstactle_instance.position = Vector2(680 + (i * 200), rng.randi_range(140, 350))
-		pipes.append(obstactle_instance)
-		$Gameplay.add_child(obstactle_instance)
+		var obstacle_instance = obstacle.instantiate()
+		obstacle_instance.set_name("pipe" + str(i))
+		obstacle_instance.position = Vector2(680 + (i * 200), rng.randi_range(140, 350))
+		pipes.append(obstacle_instance)
+		$Gameplay.add_child(obstacle_instance)
 
 
 func _ready():
 	spawn_pipes(4)
 	current_pipe = 0
+	pipes[0].set_active()
 
 
 func _process(_delta):
@@ -58,4 +61,6 @@ func _process(_delta):
 		)
 	):
 		$"Gameplay/ScoreUI".score_tick()
+		pipes[current_pipe].set_inactive()
 		current_pipe = (current_pipe + 1) % pipes.size()
+		pipes[current_pipe].set_active()

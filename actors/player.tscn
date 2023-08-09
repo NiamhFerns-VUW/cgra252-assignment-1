@@ -16,3 +16,7 @@ texture = ExtResource("1_l4qor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ffjte")
+
+[node name="JumpTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
