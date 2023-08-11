@@ -1,20 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1erof7tjq72d"]
 
 [ext_resource type="Texture2D" uid="uid://drvoi5675p3i5" path="res://assets/flappy-bird-assets/sprites/pipe-green.png" id="1_3q42g"]
-[ext_resource type="Script" path="res://scripts/obstactle.gd" id="1_sdkx7"]
+[ext_resource type="Script" path="res://scripts/actor/obstactle.gd" id="1_oei5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tge4h"]
-size = Vector2(52, 320)
+size = Vector2(52, 640)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwlrr"]
-size = Vector2(52, 320)
+size = Vector2(52, 640)
 
 [node name="Obstacle" type="Area2D"]
 collision_layer = 3
-script = ExtResource("1_sdkx7")
+script = ExtResource("1_oei5j")
 
 [node name="TopTexture" type="Sprite2D" parent="."]
 position = Vector2(0, 225)
+texture = ExtResource("1_3q42g")
+
+[node name="TopTextureExtension" type="Sprite2D" parent="TopTexture"]
+position = Vector2(0, -770)
+rotation = 3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("1_3q42g")
 
 [node name="BottomTexture" type="Sprite2D" parent="."]
@@ -22,12 +28,18 @@ position = Vector2(0, -225)
 rotation = 3.14159
 texture = ExtResource("1_3q42g")
 
+[node name="BottomTextureExtension" type="Sprite2D" parent="BottomTexture"]
+position = Vector2(0.00195209, -770)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("1_3q42g")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -225)
+position = Vector2(0, -385)
 shape = SubResource("RectangleShape2D_tge4h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 225)
+position = Vector2(0, 385)
 shape = SubResource("RectangleShape2D_iwlrr")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -19,9 +19,9 @@ func get_height():
 
 
 func _process(delta):
-	if Input.is_action_pressed("up") and active_obstacle:
+	if Input.is_action_pressed("up") and active_obstacle and position.y > 100:
 		vel.y = -200.0
-	elif Input.is_action_pressed("down") and active_obstacle:	
+	elif Input.is_action_pressed("down") and active_obstacle and position.y < get_viewport().size.y - 100:	
 		vel.y = 200.0
 	else:
 		vel.y = 0

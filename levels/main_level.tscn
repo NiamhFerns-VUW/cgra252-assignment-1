@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5ttxo6ta4r3m"]
+
+[ext_resource type="Script" path="res://scripts/level/main_level.gd" id="1_27kjf"]
+[ext_resource type="PackedScene" uid="uid://inddyfk4vot4" path="res://actors/background.tscn" id="2_720bx"]
+[ext_resource type="PackedScene" uid="uid://b2criqflyiaqv" path="res://actors/player.tscn" id="3_wabvm"]
+[ext_resource type="PackedScene" uid="uid://dd20siun6x2d2" path="res://ui/score_ui.tscn" id="4_7kfe8"]
+[ext_resource type="PackedScene" uid="uid://bwhs20ddqm55d" path="res://ui/death_ui.tscn" id="5_ii6fo"]
+
+[node name="MainLevel" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_27kjf")
+
+[node name="Gameplay" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="BackgroundTiles" type="Node2D" parent="Gameplay"]
+
+[node name="Background1" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_720bx")]
+position = Vector2(1005, 244)
+
+[node name="Background2" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_720bx")]
+position = Vector2(144, 244)
+
+[node name="Background3" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_720bx")]
+position = Vector2(431, 244)
+
+[node name="Background4" parent="Gameplay/BackgroundTiles" instance=ExtResource("2_720bx")]
+position = Vector2(719, 244)
+
+[node name="Player" parent="Gameplay" instance=ExtResource("3_wabvm")]
+position = Vector2(200, 220)
+
+[node name="ScoreUI" parent="Gameplay" instance=ExtResource("4_7kfe8")]
+
+[node name="DeathUI" parent="." instance=ExtResource("5_ii6fo")]
+visible = false

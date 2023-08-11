@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://diktr7k27w4q0"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_gg4o5"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_3tdjb"]
 [ext_resource type="PackedScene" uid="uid://inddyfk4vot4" path="res://actors/background.tscn" id="2_vpj0r"]
-[ext_resource type="FontFile" uid="uid://dd7vouvsypbqh" path="res://fonts/04b_30/04B_30__.TTF" id="3_ttkh5"]
+[ext_resource type="FontFile" uid="uid://dd7vouvsypbqh" path="res://assets/fonts/04b_30/04B_30__.TTF" id="3_v0lmj"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_gg4o5")
+script = ExtResource("1_3tdjb")
 
 [node name="Background1" parent="." instance=ExtResource("2_vpj0r")]
 position = Vector2(144, 244)
@@ -35,17 +35,17 @@ size_flags_horizontal = 0
 
 [node name="Start" type="Button" parent="GridContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ttkh5")
+theme_override_fonts/font = ExtResource("3_v0lmj")
 text = " Start "
 
 [node name="Opts" type="Button" parent="GridContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ttkh5")
+theme_override_fonts/font = ExtResource("3_v0lmj")
 text = "Options"
 
 [node name="Quit" type="Button" parent="GridContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ttkh5")
+theme_override_fonts/font = ExtResource("3_v0lmj")
 text = "Exit
 "
 

@@ -10,6 +10,7 @@ var game_over: bool = false:
 	set(value):
 		game_over = value
 		if game_over:
+			$Gameplay/Player.die()
 			get_tree().paused = true
 			$DeathUI.show()
 			return

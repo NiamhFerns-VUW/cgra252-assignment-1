@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwhs20ddqm55d"]
 
-[ext_resource type="Script" path="res://scripts/death_ui.gd" id="1_2ytci"]
+[ext_resource type="Script" path="res://scripts/ui/death_ui.gd" id="1_5yurb"]
 
 [node name="DeathUI" type="CanvasLayer"]
 process_mode = 2
-script = ExtResource("1_2ytci")
+script = ExtResource("1_5yurb")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 8

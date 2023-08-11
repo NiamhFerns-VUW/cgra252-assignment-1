@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2criqflyiaqv"]
+[gd_scene load_steps=5 format=3 uid="uid://b2criqflyiaqv"]
 
-[ext_resource type="Texture2D" uid="uid://ddqli0ue8mfri" path="res://assets/flappy-bird-assets/sprites/redbird-downflap.png" id="1_l4qor"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_plgsw"]
+[ext_resource type="Script" path="res://scripts/actor/player.gd" id="1_03rxt"]
+[ext_resource type="SpriteFrames" uid="uid://bbulakorwpp75" path="res://animations/player.tres" id="2_00jcj"]
+[ext_resource type="AudioStream" uid="uid://chsgi5kmrdc1y" path="res://assets/flappy-bird-assets/audio/die.wav" id="3_joxds"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ffjte"]
 radius = 14.1421
@@ -9,14 +10,19 @@ radius = 14.1421
 [node name="Player" type="Area2D" groups=["flappy"]]
 process_mode = 3
 collision_layer = 3
-script = ExtResource("1_plgsw")
+script = ExtResource("1_03rxt")
 
-[node name="PlayerTexture" type="Sprite2D" parent="."]
-texture = ExtResource("1_l4qor")
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_00jcj")
+animation = &"Alive"
+autoplay = "Alive"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ffjte")
 
-[node name="JumpTimer" type="Timer" parent="."]
+[node name="DirectionSwitchTimer" type="Timer" parent="."]
 
-[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_joxds")
+
+[connection signal="timeout" from="DirectionSwitchTimer" to="." method="_on_direction_switch_timer_timeout"]

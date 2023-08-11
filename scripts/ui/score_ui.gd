@@ -2,9 +2,9 @@ extends CanvasLayer
 
 var score: int
 
-
 func score_tick():
 	score += 1
+	$ScoreSound.play()
 	$ScoreCount.text = "Score: " + str(score)
 
 

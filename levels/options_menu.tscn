@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckvo23payx6id"]
+
+[ext_resource type="Script" path="res://scripts/ui/options_menu.gd" id="1_plu0q"]
+[ext_resource type="PackedScene" uid="uid://inddyfk4vot4" path="res://actors/background.tscn" id="2_obw5v"]
+[ext_resource type="FontFile" uid="uid://dd7vouvsypbqh" path="res://assets/fonts/04b_30/04B_30__.TTF" id="3_kbky1"]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_plu0q")
+
+[node name="Background1" parent="." instance=ExtResource("2_obw5v")]
+position = Vector2(144, 244)
+
+[node name="Background2" parent="." instance=ExtResource("2_obw5v")]
+position = Vector2(431, 244)
+
+[node name="Background3" parent="." instance=ExtResource("2_obw5v")]
+position = Vector2(719, 244)
+
+[node name="Background4" parent="." instance=ExtResource("2_obw5v")]
+position = Vector2(1007, 244)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -41.0
+offset_right = 73.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="DarkMode" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Toggle" type="CheckButton" parent="GridContainer/DarkMode"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer/DarkMode"]
+layout_mode = 2
+text = "Dark Mode"
+
+[node name="EasyMode" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Toggle" type="CheckButton" parent="GridContainer/EasyMode"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GridContainer/EasyMode"]
+layout_mode = 2
+text = "Easy Mode"
+
+[node name="VolumeLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kbky1")
+text = "Back
+"
+
+[connection signal="toggled" from="GridContainer/DarkMode/Toggle" to="." method="_on_dark_mode_toggled"]
+[connection signal="toggled" from="GridContainer/EasyMode/Toggle" to="." method="_on_easy_mode_toggled"]

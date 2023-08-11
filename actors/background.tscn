@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://inddyfk4vot4"]
 
-[ext_resource type="Script" path="res://scripts/background.gd" id="1_wk7iy"]
+[ext_resource type="Script" path="res://scripts/misc/background.gd" id="1_1wrah"]
 [ext_resource type="Texture2D" uid="uid://cpgm63pwlv26v" path="res://assets/flappy-bird-assets/sprites/background-day.png" id="2_liwg1"]
 
 [node name="Background" type="Node2D"]
-script = ExtResource("1_wk7iy")
+script = ExtResource("1_1wrah")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("2_liwg1")
