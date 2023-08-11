@@ -1,7 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1erof7tjq72d"]
+[gd_scene load_steps=7 format=3 uid="uid://d1erof7tjq72d"]
 
 [ext_resource type="Texture2D" uid="uid://drvoi5675p3i5" path="res://assets/flappy-bird-assets/sprites/pipe-green.png" id="1_3q42g"]
 [ext_resource type="Script" path="res://scripts/actor/obstactle.gd" id="1_oei5j"]
+[ext_resource type="Texture2D" uid="uid://dyldqjdp7r683" path="res://assets/flappy-bird-assets/sprites/pipe-red.png" id="2_0u0ti"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ciyms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0u0ti")
+}],
+"loop": true,
+"name": &"Dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3q42g")
+}],
+"loop": true,
+"name": &"Light",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tge4h"]
 size = Vector2(52, 640)
@@ -13,26 +33,34 @@ size = Vector2(52, 640)
 collision_layer = 3
 script = ExtResource("1_oei5j")
 
-[node name="TopTexture" type="Sprite2D" parent="."]
+[node name="TextureBottom" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 225)
-texture = ExtResource("1_3q42g")
+sprite_frames = SubResource("SpriteFrames_ciyms")
+animation = &"Dark"
+autoplay = "Light"
 
-[node name="TopTextureExtension" type="Sprite2D" parent="TopTexture"]
-position = Vector2(0, -770)
+[node name="TextureBottomExtn" type="AnimatedSprite2D" parent="TextureBottom"]
+position = Vector2(0, 320)
 rotation = 3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("1_3q42g")
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_ciyms")
+animation = &"Dark"
+autoplay = "Light"
 
-[node name="BottomTexture" type="Sprite2D" parent="."]
+[node name="TextureTop" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -225)
 rotation = 3.14159
-texture = ExtResource("1_3q42g")
+sprite_frames = SubResource("SpriteFrames_ciyms")
+animation = &"Dark"
+autoplay = "Light"
 
-[node name="BottomTextureExtension" type="Sprite2D" parent="BottomTexture"]
-position = Vector2(0.00195209, -770)
-rotation = -3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("1_3q42g")
+[node name="TextureTopExtn" type="AnimatedSprite2D" parent="TextureTop"]
+position = Vector2(0, 320)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_ciyms")
+animation = &"Dark"
+autoplay = "Light"
 
 [node name="TopCollision" type="CollisionShape2D" parent="."]
 position = Vector2(2.91038e-11, -385)

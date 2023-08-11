@@ -4,6 +4,7 @@ var current_pipe  # Index of pipe immediate in front of player.
 var pipes = []  # All pipes.
 var rng = RandomNumberGenerator.new()
 
+# Handle game over state. Shows UI if needed.
 var game_over: bool = false:
 	get:
 		return game_over
@@ -28,9 +29,9 @@ func game_reset():
 
 # Reset pipes to starting position.
 func reposition_pipes():
-	pipes[current_pipe].set_inactive()
+	pipes[current_pipe].active = false
 	current_pipe = 0
-	pipes[current_pipe].set_active()
+	pipes[current_pipe].active = true
 	for i in range(0, pipes.size()):
 		pipes[i].position = Vector2(680 + (i * 200), rng.randi_range(140, 350))
 
@@ -49,7 +50,7 @@ func spawn_pipes(n: int):
 func _ready():
 	spawn_pipes(4)
 	current_pipe = 0
-	pipes[0].set_active()
+	pipes[0].active = true
 
 
 func _process(_delta):
@@ -61,7 +62,8 @@ func _process(_delta):
 			> pipes[current_pipe].position.x + (pipes[0].get_width() / 2)
 		)
 	):
+		# Move to next pipe after a successful pass.
 		$"Gameplay/ScoreUI".score_tick()
-		pipes[current_pipe].set_inactive()
+		pipes[current_pipe].active = false
 		current_pipe = (current_pipe + 1) % pipes.size()
-		pipes[current_pipe].set_active()
+		pipes[current_pipe].active = true

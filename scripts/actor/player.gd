@@ -14,6 +14,7 @@ func die():
 	$DeathSound.play()
 
 
+# Resets the bird vel, position, and movement timer.
 func reset():
 	position = Vector2(200, 220)
 	vel = Vector2(0.0, 0.0)
@@ -34,12 +35,13 @@ func _process(delta):
 	# Fall off screen in game over.
 	if $"../..".game_over:
 		$Texture.animation = "Dead"
-		position.y += death_fall_vely * delta
+		position.y += death_fall_vel_y * delta
 		death_fall_vel_y += 5
 		$DirectionSwitchTimer.stop()
 		return
 
 
+# Randomise movement through a vertical vel and a time limit.
 func _on_direction_switch_timer_timeout():
 	$DirectionSwitchTimer.stop()
 	vel = Vector2(0.0, randi_range(50, 100) * (-1 if moving_up else 1))
