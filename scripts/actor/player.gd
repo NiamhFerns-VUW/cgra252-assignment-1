@@ -5,7 +5,7 @@ const MAX_VEL = 500.0
 var vel: Vector2 = Vector2.ZERO
 var starting_position: Vector2
 var moving_up: bool
-var death_fall_vely
+var death_fall_vel_y
 
 var rng = RandomNumberGenerator.new()
 
@@ -20,7 +20,8 @@ func reset():
 	$DirectionSwitchTimer.set_wait_time(rng.randf_range(0.2, 0.5))
 	$DirectionSwitchTimer.start()
 	moving_up = false
-	death_fall_vely = -150
+	death_fall_vel_y = -150
+	$Texture.animation = "Alive"
 
 
 func _ready():
@@ -34,7 +35,7 @@ func _process(delta):
 	if $"../..".game_over:
 		$Texture.animation = "Dead"
 		position.y += death_fall_vely * delta
-		death_fall_vely += 5
+		death_fall_vel_y += 5
 		$DirectionSwitchTimer.stop()
 		return
 

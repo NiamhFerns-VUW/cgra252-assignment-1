@@ -1,10 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://inddyfk4vot4"]
+[gd_scene load_steps=5 format=3 uid="uid://inddyfk4vot4"]
 
 [ext_resource type="Script" path="res://scripts/misc/background.gd" id="1_1wrah"]
 [ext_resource type="Texture2D" uid="uid://cpgm63pwlv26v" path="res://assets/flappy-bird-assets/sprites/background-day.png" id="2_liwg1"]
+[ext_resource type="Texture2D" uid="uid://bdfcl4534qovc" path="res://assets/flappy-bird-assets/sprites/background-night.png" id="2_x7u7u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7174"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x7u7u")
+}],
+"loop": true,
+"name": &"Dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_liwg1")
+}],
+"loop": true,
+"name": &"Light",
+"speed": 5.0
+}]
 
 [node name="Background" type="Node2D"]
 script = ExtResource("1_1wrah")
 
-[node name="Texture" type="Sprite2D" parent="."]
-texture = ExtResource("2_liwg1")
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p7174")
+animation = &"Light"
+autoplay = "Light"

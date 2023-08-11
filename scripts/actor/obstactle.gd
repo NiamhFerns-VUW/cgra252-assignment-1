@@ -4,11 +4,14 @@ var rng = RandomNumberGenerator.new()
 var vel: Vector2 = Vector2(-200.0, 0.0)
 var active_obstacle: bool = false
 
+
 func set_active():
 	active_obstacle = true
 
+
 func set_inactive():
 	active_obstacle = false
+
 
 func get_width():
 	return $TopTexture.texture.get_width()
@@ -29,7 +32,11 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("up") and active_obstacle and position.y > 100:
 		vel.y = -200.0
-	elif Input.is_action_pressed("down") and active_obstacle and position.y < get_viewport().size.y - 100:	
+	elif (
+		Input.is_action_pressed("down")
+		and active_obstacle
+		and position.y < get_viewport().size.y - 100
+	):
 		vel.y = 200.0
 	else:
 		vel.y = 0

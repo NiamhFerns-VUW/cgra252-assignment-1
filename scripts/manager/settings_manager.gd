@@ -17,13 +17,13 @@ var easy_mode: bool = false:
 		easy_mode = value
 		print("Easy Mode is now " + ("ON" if easy_mode else "OFF"))
 
-var audio_level: int = 100:
+var audio_level: float = 1.0:
 	get:
 		return audio_level
 	set(value):
-		if value > 100 or value < 0:
-			assert(false, "Audio value out of range.") # Godot exceptions wouldn't work...
-		
+		if value > 1.0 or value < 0.0:
+			assert(false, "Audio value out of range.")  # Godot exceptions wouldn't work...
+
 		audio_level = value
 		print("Audio Level is now " + str(value))
 
