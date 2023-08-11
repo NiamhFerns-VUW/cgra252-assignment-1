@@ -18,6 +18,14 @@ func get_height():
 	return $TopTexture.texture.get_height()
 
 
+func _ready():
+	if SettingsManager.easy_mode:
+		$TopTexture.position.y *= SettingsManager.obstacle_easy_bonus
+		$TopTexture.position.y *= SettingsManager.obstacle_easy_bonus
+		$BottomCollision.position.y *= SettingsManager.obstacle_easy_bonus
+		$BottomCollision.position.y *= SettingsManager.obstacle_easy_bonus
+
+
 func _process(delta):
 	if Input.is_action_pressed("up") and active_obstacle and position.y > 100:
 		vel.y = -200.0

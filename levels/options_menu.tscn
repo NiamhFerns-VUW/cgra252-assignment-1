@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckvo23payx6id"]
+[gd_scene load_steps=4 format=3 uid="uid://h3ux50xyrvsl"]
 
 [ext_resource type="Script" path="res://scripts/ui/options_menu.gd" id="1_plu0q"]
 [ext_resource type="PackedScene" uid="uid://inddyfk4vot4" path="res://actors/background.tscn" id="2_obw5v"]
 [ext_resource type="FontFile" uid="uid://dd7vouvsypbqh" path="res://assets/fonts/04b_30/04B_30__.TTF" id="3_kbky1"]
 
-[node name="OptionsMenu" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_plu0q")
 
 [node name="Background1" parent="." instance=ExtResource("2_obw5v")]
@@ -33,15 +33,15 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="DarkMode" type="HBoxContainer" parent="GridContainer"]
+[node name="NightMode" type="HBoxContainer" parent="GridContainer"]
 layout_mode = 2
 
-[node name="Toggle" type="CheckButton" parent="GridContainer/DarkMode"]
+[node name="Toggle" type="CheckButton" parent="GridContainer/NightMode"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GridContainer/DarkMode"]
+[node name="Label" type="Label" parent="GridContainer/NightMode"]
 layout_mode = 2
-text = "Dark Mode"
+text = "Night Mode"
 
 [node name="EasyMode" type="HBoxContainer" parent="GridContainer"]
 layout_mode = 2
@@ -55,16 +55,20 @@ text = "Easy Mode"
 
 [node name="VolumeLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
-text = "Volume"
+text = "Master Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="GridContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HFlowContainer" parent="GridContainer"]
 layout_mode = 2
 
 [node name="Back" type="Button" parent="GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_kbky1")
-text = "Back
-"
+text = "Back"
 
-[connection signal="toggled" from="GridContainer/DarkMode/Toggle" to="." method="_on_dark_mode_toggled"]
+[connection signal="toggled" from="GridContainer/NightMode/Toggle" to="." method="_on_night_mode_toggled"]
 [connection signal="toggled" from="GridContainer/EasyMode/Toggle" to="." method="_on_easy_mode_toggled"]
+[connection signal="value_changed" from="GridContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="GridContainer/Back" to="." method="_on_back_pressed"]

@@ -1,11 +1,21 @@
 extends CanvasLayer
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$GridContainer/VolumeSlider.value = SettingsManager.audio_level
+	$GridContainer/NightMode/Toggle.button_pressed = SettingsManager.night_mode
+	$GridContainer/EasyMode/Toggle.button_pressed = SettingsManager.easy_mode
+
+func _on_night_mode_toggled(button_pressed: bool):
+	SettingsManager.night_mode = button_pressed  # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_easy_mode_toggled(button_pressed: bool):
+	SettingsManager.easy_mode = button_pressed
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://levels/main_menu.tscn")
+
+
+func _on_volume_slider_value_changed(value):
+	SettingsManager.audio_level = value

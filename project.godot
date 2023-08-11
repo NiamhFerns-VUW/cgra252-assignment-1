@@ -15,6 +15,10 @@ run/main_scene="res://levels/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SettingsManager="*res://scripts/manager/settings_manager.gd"
+
 [display]
 
 window/size/viewport_width=640
