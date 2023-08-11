@@ -1,4 +1,6 @@
 # CGRA 252 Game Engine Programming
+*NOTE:* Built in Godot 4.1
+
 ## Your name
 Niamh Kirsty Ferns
 
@@ -11,11 +13,11 @@ Niamh Kirsty Ferns
 ## Title of the Game
 Phlappi I3ird - The Phlappening
 
-Link to video (onedrive/vimeo/youtube/googledrive other video service) showing the prototype/game ( approx. 4-9 mins )
+**Video:** https://drive.proton.me/urls/HCNQ1HM2HW#1iUQljlHiKHQ
 
 # Game Description
 ## Summary
-Phlappi I3ird - The Phlappening is a reimagining of Flappy Bird but this time you're controlling the pipes, not the bird.
+Phlappi I3ird - The Phlappening is a re-imagining of Flappy Bird but this time you're controlling the pipes, not the bird.
 
 
 ## Controls
@@ -65,3 +67,17 @@ I feel I used git well but my commit consistency and branching could use some wo
 
 Commit messages in particular I think I need to work on. There were often times where I'd work on two or three separate* things and because it would take too much time to split them up cleanly, they all just end up in one mega-commit. Not good for tracking and not good for other devs trying to catch up on my work.
 
+## Conclusion
+I feel like this, in the future, gives me a better understanding of what features of the engine I should use when. Trying to build the movement myself for the bird for example, not a good idea. In the future I should be using RigidBody and controlling the physics through the inbuilt physics engine. Trying to connect all the signals manually in engine is rather rigid and so it would be best to use code to `.connect()` on a signal when I need it.
+
+A good example of this pattern that I'd like to use in the future is connecting to a signal on `_ready()`.
+
+```gdscript
+func _ready():
+    sig.connect(_on_sig_detection)
+
+func _on_sig_detection():
+    # Do stuff here...
+```
+
+There are a few smaller bits and pieces like this but it's all mostly in how all the pieces fit together, not how the engine works fundamentally.
